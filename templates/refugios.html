@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Refugios
+{% endblock %}
+{% block content %}
+    <h1>Lista de Refugios</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Ciudad</th>
+            <th>Acciones</th>
+        </tr>
+        {% for refugio in refugiosL %}
+        <tr>
+            <td><a href="/refugioDetalles/{{ refugio.id_refugio }}">{{ refugio.id_refugio }}</a></td>
+            <td>{{ refugio.nombre_refugio }}</td>
+            <td>{{ refugio.direccion }}</td>
+            <td>{{ refugio.ciudad.nombre_ciudad }}</td>
+            <td>
+                <a href="/editarRefugio/{{ refugio.id_refugio }}">Editar</a> |
+                <a href="/eliminarRefugio/{{ refugio.id_refugio }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/registrarRefugio">Registrar nuevo refugio</a>
+{% endblock %}

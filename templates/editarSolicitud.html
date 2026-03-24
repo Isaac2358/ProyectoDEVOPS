@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Gestionar Solicitud
+{% endblock %}
+{% block content %}
+    <h1>Gestionar Solicitud de Adopción</h1>
+    
+    <div>
+        <div>
+            <h5>Información de la Solicitud</h5>
+            <p><strong>Solicitante:</strong> {{ solicitud.usuario.nombre }}</p>
+            <p><strong>Mascota:</strong> {{ solicitud.mascota.nombre }}</p>
+            <p><strong>Refugio:</strong> {{ solicitud.mascota.refugio.nombre_refugio }}</p>
+            <p><strong>Fecha:</strong> {{ solicitud.fecha_solicitud.strftime('%d/%m/%Y %H:%M') }}</p>
+            <p><strong>Observaciones:</strong> {{ solicitud.observaciones or 'Ninguna' }}</p>
+        </div>
+    </div>
+
+    <form action="/editarSolicitud/{{ solicitud.id_solicitud }}" method="post">
+        <div>
+            <label for="estado">Estado de la solicitud:</label>
+            <select id="estado" name="estado" required>
+                <option value="pendiente" {% if solicitud.estado == 'pendiente' %}selected{% endif %}>
+                    Pendiente
+                </option>
+                <option value="aceptada" {% if solicitud.estado == 'aceptada' %}selected{% endif %}>
+                    Aceptada
+                </option>
+                <option value="rechazada" {% if solicitud.estado == 'rechazada' %}selected{% endif %}>
+                    Rechazada
+                </option>
+            </select>
+        </div>
+
+        <div>
+            <label for="observaciones">Observaciones (opcional):</label>
+            <textarea id="observaciones" name="observaciones" rows="3">
+                {{ solicitud.observaciones or '' }}
+            </textarea>
+        </div>
+
+        <button type="submit">Actualizar Solicitud</button>
+        <a href="/panel_solicitudes">Cancelar</a>
+    </form>
+{% endblock %}

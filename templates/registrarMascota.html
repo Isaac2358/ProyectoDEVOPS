@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block title%}
+    AdoptaMex|Registrar mascota
+{%endblock%}
+{%block content%}
+    <h1>Registrar una nueva mascota</h1>
+    <form action="/registrarMascota" method="post" enctype="multipart/form-data">
+        <label for="nombreM">Nombre de la mascota:</label>
+        <input type="text" id="nombreM" name="nombre" required><br><br>
+        <label for="especieM">Especie:</label>
+        <input type="text" id="especieM" name="especie" required><br><br>
+        <label for="razaM">Raza:</label>
+        <input type="text" id="razaM" name="raza" required><br><br>
+        <label for="edadM">Edad:</label>
+        <input type="number" id="edadM" name="edad" step="0.1"><br><br>
+        <label for="sexoM">Sexo:</label>
+        <input type="text" id="sexoM" name="sexo" required><br><br>
+        <label for="estadoM">Estado:</label>
+        <input type="text" id="estadoM" name="estado" required><br><br>
+        <label for="fotoM">Foto:</label>
+        <input type="file" accept="image/*" id="fotoM" name="foto"><br><br>
+        <label for="refugioM">Refugio:</label>
+        <select name="refugio" id="refugioM" required>
+            {% for refugio in refugios %}
+                <option value="{{ refugio.id_refugio }}">{{refugio.nombre_refugio}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Registrar mascota">
+    </form>
+{%endblock%}

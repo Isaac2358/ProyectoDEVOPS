@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Solicitud de Adopción
+{% endblock %}
+{% block content %}
+    <h1>Solicitud de Adopción</h1>
+    <div>
+        <h2>Estás solicitando adoptar a {{ mascota.nombre }}</h2>
+        <img src="/imagen_mascota/{{ mascota.id_mascota }}" alt="{{ mascota.nombre }}" width="150">
+        <p><strong>Especie:</strong> {{ mascota.especie }}</p>
+        <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+        <p><strong>Edad:</strong> {{ mascota.edad }} años</p>
+    </div>
+
+    <form action="/solicitud_adopcion/{{ mascota.id_mascota }}" method="post">
+        <div>
+            <label for="observaciones">Comentarios adicionales (opcional):</label>
+            <textarea id="observaciones" name="observaciones" rows="4" 
+                     placeholder="Cuéntanos sobre tu experiencia con mascotas, tu hogar, etc." 
+                     ></textarea>
+        </div>
+        
+        <div>
+            <p><strong>Al enviar esta solicitud, aceptas que:</strong></p>
+            <ul>
+                <li>Proporcionarás un hogar responsable y amoroso</li>
+                <li>Cumplirás con los requisitos de seguimiento</li>
+                <li>Te comprometes con el bienestar de la mascota</li>
+            </ul>
+        </div>
+
+        <button type="submit">Enviar Solicitud</button>
+        <a href="/mascotaDetalles/{{ mascota.id_mascota }}">Cancelar</a>
+    </form>
+{% endblock %}

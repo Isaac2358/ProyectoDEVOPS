@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {%block title%}
+            
+        {%endblock%}
+    </title>
+</head>
+<body>
+    <header>
+        <img src="{{url_for('static',filename='adoptaMexLogo.png')}}" alt="Logotipo con letras que leen adoptamex y una caricatura de un cachorro." width="160px">
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/mascotas">Adoptar</a></li>
+                <li><a href="/refugios">Refugios</a></li>
+                <li><a href="/ciudades">Ciudades</a></li>
+                <li><a href="/mis_solicitudes">Mis solicitudes</a></li>
+                <li><a href="/panel_solicitudes">Panel de solicitudes</a></li>
+                <li><a href="/acercade">Acerca de</a></li>
+            </ul>
+            <div>Inicio de sesión
+                <ul>
+                    <li><a href="/login">Iniciar sesión</a></li>
+                    <li><a href="/registro">Registrarse</a></li>
+                    <li><a href="/usuarios">Usuarios (Superadmin)</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {%block content%}
+
+        {%endblock%}
+    </main>
+    <footer>
+        <a href="/"><img src="{{url_for('static',filename='adoptaMexLogo.png')}}" alt="Logotipo con letras que leen adoptamex y una caricatura de un cachorro." width="160px"></a>  
+        <ul>
+            <li><a href=""><img src="{{url_for('static',filename='facebook.png')}}" alt="Imagen con el logotipo de facebook" width="30"></a></li>
+            <li><a href=""><img src="{{url_for('static',filename='twitter.png')}}" alt="Imagen con el logotipo de twitter/x" width="30"></a></li>
+            <li><a href=""><img src="{{url_for('static',filename='instagram.png')}}" alt="Imagen con el logotipo de instagram" width="30"></a></li>
+            <li><a href=""><img src="{{url_for('static',filename='tik-tok.png')}}" alt="Imagen con el logotipo de tiktok" width="30"></a></li>
+        </ul>
+    </footer>
+    <br>
+</body>
+</html>

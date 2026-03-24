@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Información de la mascota 
+{% endblock %}
+{% block content %}
+    <h1>{{ pet.nombre }}</h1>
+    <img src="/imagen_mascota/{{ pet.id_mascota }}" alt="" width="200">
+    <p>ID: {{ pet.id_mascota }}</p>
+    <p>Especie: {{ pet.especie }}</p>
+    <p>Raza: {{ pet.raza }}</p>
+    <p>Edad: {{ pet.edad }}</p>
+    <p>Sexo: {{ pet.sexo }}</p>
+    <p>Estado: {{ pet.estado }}</p>
+    <p>Refugio: {{ pet.refugio }}</p>
+
+    {% if pet.estado == 'disponible' %}
+        <a href="/solicitud_adopcion/{{ pet.id_mascota }}">
+            Solicitar Adopción
+        </a>
+    {% else %}
+        <button disabled>
+            {% if pet.estado == 'en proceso' %}
+                En proceso de adopción
+            {% else %}
+                Ya fue adoptado
+            {% endif %}
+        </button>
+    {% endif %}
+    <br><br>
+    <a href="/mascotas">Regresar a mascotas</a>
+{% endblock %}

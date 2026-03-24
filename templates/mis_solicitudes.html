@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Mis Solicitudes
+{% endblock %}
+{% block content %}
+    <h1>Mis Solicitudes de Adopción</h1>
+    
+    {% if solicitudes %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Mascota</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for solicitud in solicitudes %}
+                <tr>
+                    <td>
+                        <a href="/mascotaDetalles/{{ solicitud.mascota.id_mascota }}">
+                            {{ solicitud.mascota.nombre }}
+                        </a>
+                    </td>
+                    <td>{{ solicitud.fecha_solicitud.strftime('%d/%m/%Y %H:%M') }}</td>
+                    <td>
+                        <span>
+                            {{ solicitud.estado }}
+                        </span>
+                    </td>
+                    <td>{{ solicitud.observaciones or 'Sin observaciones' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div>
+            No has realizado ninguna solicitud de adopción.
+        </div>
+    {% endif %}
+    
+    <a href="/mascotas">Ver Mascotas Disponibles</a>
+{% endblock %}

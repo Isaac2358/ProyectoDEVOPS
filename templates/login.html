@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block title%}
+{%endblock%}
+    AdoptaMex|Iniciar sesión
+{%block content%}
+    <form action="/login" method="post">
+        <h1>Iniciar sesión</h1>
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" required><br><br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required><br><br>
+        <input type="submit" value="Iniciar sesión">
+    </form>
+    <a href="/">Cancelar</a>
+{%endblock%}

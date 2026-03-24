@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Eliminar usuario
+{% endblock %}
+{% block content %}
+    <h1>Eliminar usuario</h1>
+    <form action="/eliminarUsuarios/{{ usuario.id_usuario }}" method="post">
+        <p>¿Estás seguro que deseas eliminar al siguiente usuario?</p>
+        <p>Nombre: {{ usuario.nombre }} - ID: {{ usuario.id_usuario }}</p>
+        <p>Correo: {{ usuario.correo }}</p>
+        <input type="submit" value="Eliminar usuario">
+    </form>
+    <a href="/usuarios">Cancelar</a>
+{% endblock %}

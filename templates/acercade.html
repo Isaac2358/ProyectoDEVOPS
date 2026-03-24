@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{%block title%}
+    AdoptaMex | Acerca de
+{%endblock%}
+{%block content%}
+    <h1>AdoptaMex</h1>
+
+    <h2>Misión:</h2>
+    <p>Promover la adopción responsable de mascotas en situación de abandono, conectando refugios con familias amorosas y comprometidas. Buscamos brindar una segunda oportunidad a cada animal, fomentando el respeto, el cuidado y la empatía hacia todos los seres vivos.</p>
+    <img src="{{url_for('static',filename='mision.png')}}" alt="Imagen de un perro rottweiler corriendo y a su izquierda una bandera con cuadrados blancos y negros" width="160">
+
+    <h2>Visión:</h2>
+    <p>Ser la plataforma líder en México en la gestión de adopciones de mascotas, creando una red nacional de refugios, voluntarios y adoptantes que trabajen juntos por un país sin animales en situación de calle.</p>
+    <img src="{{url_for('static',filename='vision.jpg')}}" alt="Imagen de un acercamiento al ojo de un perro" width="160">
+
+    <h2>Valores:</h2>
+    <p>
+        <ul>
+            <li>Compasión: Nos mueve el amor por los animales y el deseo de mejorar sus vidas.</li>
+            <li>Responsabilidad: Promovemos adopciones conscientes y duraderas.</li>
+            <li>Transparencia: Operamos con claridad y honestidad en cada proceso.</li>
+            <li>Colaboración: Creemos en el trabajo conjunto entre refugios, voluntarios y adoptantes.</li>
+            <li>Educación: Fomentamos la cultura del respeto animal desde la infancia.</li>
+        </ul>
+    </p>
+
+    <img src="{{url_for('static',filename='collageCachorros.jpg')}}" alt="Imagen de un collage con 6 cachorros de diferentes razas con fondo de colores" width="160">
+{%endblock%}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Información del refugio
+{% endblock %}
+{% block content %}
+    <h1>{{ refugio.nombre_refugio }}</h1>
+    <p>ID: {{ refugio.id_refugio }}</p>
+    <p>Dirección: {{ refugio.direccion }}</p>
+    <p>Ciudad: {{ refugio.ciudad.nombre_ciudad }}</p>
+    <p>Administrador: {{ refugio.admin.nombre }}</p>
+
+    <h2>Mascotas en este refugio:</h2>
+    <ul>
+        {% for mascota in mascotas %}
+        <li>{{ mascota.nombre }} - {{ mascota.especie }}</li>
+        {% else %}
+        <li>No hay mascotas en este refugio</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/refugios">Regresar a refugios</a>
+    <br>
+{% endblock %}

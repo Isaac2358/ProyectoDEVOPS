@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+    AdoptaMex|Registrar refugio
+{% endblock %}
+{% block content %}
+    <h1>Registrar un nuevo refugio</h1>
+    <form action="/registrarRefugio" method="post">
+        <label for="nombre">Nombre del refugio:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+        
+        <label for="ubicacion">Dirección:</label>
+        <input type="text" id="ubicacion" name="ubicacion" required><br><br>
+        
+        <label for="ciudad">Ciudad:</label>
+        <select name="ciudad" id="ciudad" required>
+            {% for ciudad in ciudades %}
+                <option value="{{ ciudad.id_ciudad }}">{{ ciudad.nombre_ciudad }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="admin">Administrador:</label>
+        <select name="admin" id="admin" required>
+            {% for usuario in usuarios %}
+                {% if usuario.rol in ['admin_refugio', 'superadmin'] %}
+                    <option value="{{ usuario.id_usuario }}">{{ usuario.nombre }} ({{ usuario.rol }})</option>
+                {% endif %}
+            {% endfor %}
+        </select><br><br>
+        
+        <input type="submit" value="Registrar refugio">
+    </form>
+    <a href="/refugios">Cancelar</a>
+{% endblock %}
